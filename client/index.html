@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TTT - Online</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>TTT - Online</h1>
+    <a class="cta">Create Game</a>
+    <div class="link">
+        <a href=""></a>
+        <div class="copy-btn"></div>
+    </div>
+</body>
+<script>
+const cta = document.querySelector('.cta');
+const link = document.querySelector('.link');
+const generateUrl = (Math.random() + 1).toString(36).substring(7);
+
+cta.addEventListener('click', () => {
+    cta.style.display = 'none';
+    link.style.display = 'flex';
+    link.children[0].innerHTML = `?code=${generateUrl}`;
+    link.children[0].href = `http://127.0.0.1:5500/CLIENT/game/game.html?code=${generateUrl}`;
+    link.children[0].target = '_blank';
+
+    link.children[1].setAttribute('onclick', `copyToClipboard("http://127.0.0.1:5500/CLIENT/game/game.html?code=${generateUrl}")`);
+});
+
+function copyToClipboard(text) {
+   const elem = document.createElement('textarea');
+   elem.value = text;
+   document.body.appendChild(elem);
+   elem.select();
+   document.execCommand('copy');
+   document.body.removeChild(elem);
+}
+</script>
+</html>

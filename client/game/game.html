@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TTT - Game</title>
+    <link rel="stylesheet" href="./game.css">
+</head>
+<body>
+    <canvas id="canv" style="position: absolute; width: 100%; height: 100vh; z-index: -1;"></canvas>
+    <div class="timer"><div class="time-left"></div></div>
+    <div class="guider"><h2></h2></div>
+    <div class="board">
+        <div class="row">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+        <div class="row">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+        <div class="row">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+    </div>
+    <a onclick="window.location.reload()">Play Again</a>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js">
+import JSConfetti from 'js-confetti'
+const jsConfetti = new JSConfetti()
+jsConfetti.addConfetti()
+</script>
+<script type="module" src="./script.js"></script>
+</html>
